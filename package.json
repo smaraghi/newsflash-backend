@@ -1,0 +1,10 @@
+{
+  "name": "news-app",
+  "engines": {
+    "node": "10.15.3"
+  },
+
+  "scripts": {
+    "start": "cd client && npm start"
+  }
+}
