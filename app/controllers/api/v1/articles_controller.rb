@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class Api::V1::ArticlesController < ApplicationController
 
   require 'open-uri'
   KEY = '023a863893ee4bc9ac6f00d655b8a102'
