@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   URL1 = "https://newsapi.org/v2/top-headlines?country=us&category="
   URL2 = "&pageSize=20&apiKey="
 
-  KEY = '023a863893ee4bc9ac6f00d655b8a102'
+  KEY = Rails.application.credentials.apikeys[:news_api_key]
 
 
   def get_fetch()
