@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
 
   KEY = Rails.application.credentials.apikeys[:news_api_key]
 
-
   def get_fetch()
     fetch(URL1 + params[:category] + URL2 + KEY) 
   end
