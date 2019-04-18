@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { fetchingArticles } from '../redux/actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Button} from 'semantic-ui-react'
+import { Button, Grid, Segment } from 'semantic-ui-react'
 
 class MainContainer extends Component {
   render() { 
     return ( 
       <div>
+        <Grid stackable columns={2} verticalAlign='middle'>
+        <Grid.Column >
         <Link to={'/articles/category'}>
+          <Segment>
           <Button 
             circular color='violet' size='massive'
             onClick={() => this.props.fetchingArticles('technology')}
@@ -24,6 +27,8 @@ class MainContainer extends Component {
             circular color='yellow' size='massive'
             onClick={() => this.props.fetchingArticles('health')}>Health
           </Button>
+          </Segment>
+          <Segment>
 
           <Button
             circular color='twitter' size='massive' 
@@ -40,8 +45,10 @@ class MainContainer extends Component {
             circular color='facebook' size='massive' 
             onClick={() => this.props.fetchingArticles('business')}>Business
           </Button>
-
+          </Segment>
         </Link>
+        </Grid.Column>
+        </Grid>
       </div>
      );
   }
