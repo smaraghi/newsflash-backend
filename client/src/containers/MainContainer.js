@@ -2,23 +2,44 @@ import React, { Component } from 'react'
 import { fetchingArticles } from '../redux/actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import {Button} from 'semantic-ui-react'
 
 class MainContainer extends Component {
   render() { 
     return ( 
       <div>
         <Link to={'/articles/category'}>
-          <button onClick={() => this.props.fetchingArticles('technology')}>Tech</button>
+          <Button 
+            circular color='violet' size='massive'
+            onClick={() => this.props.fetchingArticles('technology')}
+            >Tech
+          </Button>
           
-          <button onClick={() => this.props.fetchingArticles('sports')}>Sports</button>
+          <Button 
+            circular color='linkedin' size='massive' 
+            onClick={() => this.props.fetchingArticles('sports')}>Sports
+          </Button>
 
-          <button onClick={() => this.props.fetchingArticles('health')}>Health</button>
+          <Button 
+            circular color='yellow' size='massive'
+            onClick={() => this.props.fetchingArticles('health')}>Health
+          </Button>
 
-          <button onClick={() => this.props.fetchingArticles('entertainment')}>Entertainment</button>
+          <Button
+            circular color='twitter' size='massive' 
+            onClick={() => this.props.fetchingArticles('entertainment')}
+            >E.T.
+          </Button>
 
-          <button onClick={() => this.props.fetchingArticles('science')}>Science</button>
+          <Button
+            circular color='teal' size='massive' 
+            onClick={() => this.props.fetchingArticles('science')}>Science
+          </Button>
 
-          <button onClick={() => this.props.fetchingArticles('business')}>Business</button>
+          <Button
+            circular color='facebook' size='massive' 
+            onClick={() => this.props.fetchingArticles('business')}>Business
+          </Button>
 
         </Link>
       </div>
