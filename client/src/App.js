@@ -6,6 +6,7 @@ import TrendingContainer from './containers/TrendingContainer';
 import { connect } from 'react-redux'
 import { fetchingArticles } from './redux/actions'
 import MainContainer from './containers/MainContainer';
+import { Route } from 'react-router-dom'
 
 
 class App extends Component {
@@ -20,8 +21,7 @@ class App extends Component {
         <Header />
         <ArticlesContainer />
         <TrendingContainer />
-        <MainContainer />
-        
+        <Route exact path='/' component={MainContainer} />
       </div>
     );
   }
