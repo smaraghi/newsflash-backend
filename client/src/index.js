@@ -5,6 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import store from './redux/store';
+import 'semantic-ui/dist/semantic.min.css'
+
 
 ReactDOM.render(
   <Provider store={store}>
