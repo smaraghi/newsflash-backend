@@ -4,13 +4,15 @@ import Header from './components/Header';
 import ArticlesContainer from './containers/ArticlesContainer';
 import TrendingContainer from './containers/TrendingContainer';
 import { connect } from 'react-redux'
-import { fetchArticles } from './redux/actions'
+import { fetchingArticles } from './redux/actions'
+import MainContainer from './containers/MainContainer';
+
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.fetchArticles()
-  }
+  // componentDidMount() {
+  //   this.props.fetchingArticles()
+  // }
 
   render() {
     return (
@@ -18,6 +20,8 @@ class App extends Component {
         <Header />
         <ArticlesContainer />
         <TrendingContainer />
+        <MainContainer />
+        
       </div>
     );
   }
@@ -25,7 +29,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchArticles: () => {dispatch(fetchArticles())}
+    fetchingArticles: () => {dispatch(fetchingArticles())}
   }
 }
 

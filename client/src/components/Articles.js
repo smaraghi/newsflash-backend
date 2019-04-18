@@ -1,7 +1,11 @@
 import React from 'react'
 
-const Articles = () => {
-  return <div></div>
+const Articles = props => {
+  return (
+    <div>
+      <h3> Title: {props.article.title}</h3>
+    </div>
+  )
 }
 
 export default Articles 

@@ -15,7 +15,7 @@ const articlesReducer = (state = [], action) => {
   switch(action.type) {
     
     case 'FETCHED_ARTICLES':
-      return action.articles
+      return action.articles.articles
     
     case 'INCREASE_VOTES':
       return state.map(article => {

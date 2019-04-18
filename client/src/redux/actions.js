@@ -1,4 +1,4 @@
-let URL = '/articles/health'
+let URL = '/articles/'
 
 function loadingArticle(){
   return { type: 'LOADING_ARTICLES'}
@@ -8,10 +8,11 @@ function fetchedArticles(articles){
   return { type: 'FETCHED_ARTICLES', articles }
 }
 
-function fetchArticles(){
+
+function fetchingArticles(category){
   return (dispatch) => {
     dispatch(loadingArticle())
-    fetch(URL)
+    fetch(URL + category)
     .then(res => res.json())
     .then(articles => {
       dispatch(fetchedArticles(articles))
@@ -19,4 +20,4 @@ function fetchArticles(){
   }
 }
 
-export {fetchArticles, loadingArticle, fetchedArticles}
+export {fetchingArticles, loadingArticle}
