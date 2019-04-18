@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Segment } from 'semantic-ui-react'
+import { Grid, Image, Divider, Segment } from 'semantic-ui-react'
 
 const Articles = props => {
   const { title, description, urlToImage, url, author, publishedAt } = props.article
@@ -26,6 +26,8 @@ const Articles = props => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+      <Divider hidden />
+      <Segment color='teal'></Segment>
       </div>
     </div>
   )
