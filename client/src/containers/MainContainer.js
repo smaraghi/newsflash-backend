@@ -7,7 +7,7 @@ class MainContainer extends Component {
   render() { 
     return ( 
       <div>
-        <Link to={'/articles'}>
+        <Link to={'/articles/category'}>
           <button onClick={() => this.props.fetchingArticles('technology')}>Tech</button>
           
           <button onClick={() => this.props.fetchingArticles('sports')}>Sports</button>

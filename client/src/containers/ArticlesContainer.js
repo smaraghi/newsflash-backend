@@ -6,7 +6,6 @@ class ArticlesContainer extends Component {
   render() { 
     return ( 
       <div>
-        Articles Container
         {this.props.articles.map((article, i) => <Articles key={i} article={article} />)}
       </div>
      );
