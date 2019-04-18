@@ -7,11 +7,19 @@ class MainContainer extends Component {
   render() { 
     return ( 
       <div>
-        <Link to={`/articles`}>
+        <Link to={'/articles'}>
           <button onClick={() => this.props.fetchingArticles('technology')}>Tech</button>
           
-          <br/>
           <button onClick={() => this.props.fetchingArticles('sports')}>Sports</button>
+
+          <button onClick={() => this.props.fetchingArticles('health')}>Health</button>
+
+          <button onClick={() => this.props.fetchingArticles('entertainment')}>Entertainment</button>
+
+          <button onClick={() => this.props.fetchingArticles('science')}>Science</button>
+
+          <button onClick={() => this.props.fetchingArticles('business')}>Business</button>
+
         </Link>
       </div>
      );
