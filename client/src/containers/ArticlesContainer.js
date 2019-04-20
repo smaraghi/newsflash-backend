@@ -3,6 +3,7 @@ import Articles from '../components/Articles';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { fetchingArticles } from '../redux/actions'
+import { Grid } from 'semantic-ui-react'
 
 
 class ArticlesContainer extends Component {
@@ -13,14 +14,17 @@ class ArticlesContainer extends Component {
   }
 
   componentDidMount(){
-    
     this.fetchRoutes()
   }
 
   render() { 
     return ( 
-      <div>
-        {this.props.articles.map((article, i) => <Articles key={i} article={article} />)}
+      <div className="ui grid container">
+        <div className="three column wide centered">
+          <div className="ui three stackable cards">
+            {this.props.articles.map((article, i) => <Articles key={i} article={article} />)}
+          </div>
+        </div>
       </div>
      );
   }

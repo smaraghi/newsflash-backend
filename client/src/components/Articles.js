@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image, Button, Icon } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 
 const Articles = props => {
   const { title, description, urlToImage, author, publishedAt } = props.article
