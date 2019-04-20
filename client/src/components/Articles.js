@@ -1,35 +1,19 @@
 import React from 'react'
-import { Grid, Image, Divider, Segment } from 'semantic-ui-react'
+import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
 const Articles = props => {
-  const { title, description, urlToImage, url, author, publishedAt } = props.article
+  const { title, description, urlToImage, author, publishedAt } = props.article
   return (
-    <div>
-      <div className="articleBox">
-      <Grid columns='equal'>
-        <Grid.Row stretched>
-          <Grid.Column>
-            <Segment>{title}</Segment>
-            <Segment>{description}</Segment>
-          </Grid.Column>
-          <Grid.Column width={6}>
-            <Segment>
-              <Image src={urlToImage} alt=""/>
-            </Segment>
-            <Segment>
-              <p>{url}</p>
-            </Segment>
-          </Grid.Column>
-          <Grid.Column>
-            <Segment>{author}</Segment>
-            <Segment>{publishedAt}</Segment>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-      <Divider hidden />
-      <Segment color='teal'></Segment>
-      </div>
-    </div>
+    <Card>
+      <Image src={urlToImage} alt=""/>
+      <Card.Content>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>{author}</Card.Meta>
+        <Card.Meta>{publishedAt}</Card.Meta>
+        <Card.Description>{description}</Card.Description>
+      </Card.Content>  
+      <Button inverted color='blue'>Read More</Button>
+    </Card>
   )
 }
 

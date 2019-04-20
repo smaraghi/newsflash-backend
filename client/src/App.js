@@ -9,8 +9,6 @@ import ArticlesContainer from './containers/ArticlesContainer';
 
 class App extends Component {
 
- 
-
   render() {
     return (
       <div className="App">
