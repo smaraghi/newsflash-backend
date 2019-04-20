@@ -34,7 +34,7 @@ class MainContainer extends Component {
                 </Segment>
                 <Segment>
 
-                <Link to='/articles/entertainmnt'>
+                <Link to='/articles/entertainment'>
                   <Button
                     circular color='twitter' size='massive' 
                     >E.T.
