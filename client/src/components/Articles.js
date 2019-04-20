@@ -2,10 +2,14 @@ import React from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 
 const Articles = props => {
-  const { title, description, urlToImage, author, publishedAt } = props.article
+  const getImage = () => {
+    return props.article.urlToImage ? props.article.urlToImage : require('../images/default.png')
+  }
+
+  const { title, description, author, publishedAt } = props.article
   return (
     <Card>
-      <Image src={urlToImage} alt=""/>
+      <Image src={getImage()} alt=""/>
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>{author}</Card.Meta>
