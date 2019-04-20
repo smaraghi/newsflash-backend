@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Image, Button } from 'semantic-ui-react'
+import { Card, Image, Button, Modal } from 'semantic-ui-react'
+import ArticleModal from './ArticleModal';
 
 const Articles = props => {
   const getImage = () => {
@@ -16,7 +17,9 @@ const Articles = props => {
         <Card.Meta>{publishedAt}</Card.Meta>
         <Card.Description>{description}</Card.Description>
       </Card.Content>  
-      <Button inverted color='blue'>Read More</Button>
+      <Modal trigger={<Button inverted color='blue'>Read More</Button>} centered={false}>
+        <ArticleModal article={props.article}/>
+      </Modal>
     </Card>
   )
 }
