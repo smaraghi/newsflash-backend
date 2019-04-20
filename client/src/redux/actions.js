@@ -10,6 +10,7 @@ function fetchedArticles(articles){
 
 
 function fetchingArticles(category){
+
   return (dispatch) => {
     dispatch(loadingArticle())
     fetch(URL + category)

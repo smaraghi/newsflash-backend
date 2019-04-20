@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { fetchingArticles } from '../redux/actions'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Grid, Segment } from 'semantic-ui-react'
 
@@ -10,44 +8,55 @@ class MainContainer extends Component {
       <div>
         <Grid stackable columns={2} verticalAlign='middle'>
           <Grid.Column >
-            <Link to={'/articles'}>
+            
               <Segment>
-                <Button 
+                <Link to='/articles/technology'>
+                  <Button 
                   circular color='violet' size='massive'
-                  onClick={() => this.props.fetchingArticles('technology')}
                   >Tech
                 </Button>
+              </Link> 
                 
+              <Link to='/articles/sports'>
                 <Button 
                   circular color='linkedin' size='massive' 
-                  onClick={() => this.props.fetchingArticles('sports')}>Sports
+                  >Sports
                 </Button>
+              </Link>
 
+              <Link to='/articles/health'>
                 <Button 
                   circular color='yellow' size='massive'
-                  onClick={() => this.props.fetchingArticles('health')}>Health
+                  >Health
                 </Button>
+              </Link>
 
                 </Segment>
                 <Segment>
+
+                <Link to='/articles/entertainmnt'>
                   <Button
                     circular color='twitter' size='massive' 
-                    onClick={() => this.props.fetchingArticles('entertainment')}
                     >E.T.
                   </Button>
+                </Link>
 
+                <Link to='/articles/science'>
                   <Button
                     circular color='teal' size='massive' 
-                    onClick={() => this.props.fetchingArticles('science')}>Science
+                    >Science
                   </Button>
+                </Link>
 
+                <Link to='/articles/business'>
                   <Button
                     circular color='facebook' size='massive' 
-                    onClick={() => this.props.fetchingArticles('business')}>Business
+                    >Business
                   </Button>
+                </Link>
 
               </Segment>
-            </Link>
+            
           </Grid.Column>
         </Grid>
       </div>
@@ -55,10 +64,4 @@ class MainContainer extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchingArticles: (category) => dispatch(fetchingArticles(category))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(MainContainer) ;
+export default MainContainer ;

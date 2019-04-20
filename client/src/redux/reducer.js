@@ -16,11 +16,12 @@ const articlesReducer = (state = [], action) => {
     
     case 'FETCHED_ARTICLES':
       return action.articles.articles
+      
     
     case 'INCREASE_VOTES':
       return state.map(article => {
         if(article.id === action.articleId) {
-          return{
+          return {
             ...article,
             votes: article.votes + 1
           }
@@ -32,7 +33,7 @@ const articlesReducer = (state = [], action) => {
     case 'DECREASE_VOTES':
       return state.map(article => {
         if(article.id === action.articleId) {
-          return{
+          return {
             ...article,
             votes: article.votes - 1
           }
