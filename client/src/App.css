@@ -15,3 +15,9 @@
   transform-origin: center !important;
   transition: all ease .5s;
 } 
+
+.voting-buttons-container{
+  width: 30%;
+  margin: auto;
+ 
+}
