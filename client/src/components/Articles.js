@@ -15,7 +15,7 @@ const Articles = props => {
     return `${day}-${month}-${year}`
   }
 
-  const { title, description, author, publishedAt } = props.article
+  const { title, description, author } = props.article
   return (
     <Card>
       <Image src={getImage()} alt=""/>

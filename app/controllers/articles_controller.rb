@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   require 'open-uri'
 
   URL1 = "https://newsapi.org/v2/top-headlines?country=us&category="
-  URL2 = "&pageSize=20&apiKey="
+  URL2 = "&pageSize=21&apiKey="
 
   KEY = Rails.application.credentials.apikeys[:news_api_key]
 

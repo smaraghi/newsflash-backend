@@ -3,7 +3,6 @@ import Articles from '../components/Articles';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { fetchingArticles } from '../redux/actions'
-import { Button, Modal } from 'semantic-ui-react'
 
 class ArticlesContainer extends Component {
 
@@ -18,7 +17,6 @@ class ArticlesContainer extends Component {
 
   componentDidMount(){
     this.fetchRoutes()
-    console.log(this.getCategory())
   }
 
   render() { 
