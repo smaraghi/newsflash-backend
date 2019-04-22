@@ -17,11 +17,12 @@ class ArticlesController < ApplicationController
       article.author = params[:article][:author] 
       article.description = params[:article][:description]
       article.url = params[:article][:url]
-      article.image = params[:article][:image]
-      article.date = params[:article][:publishdAt]
+      article.image = params[:article][:urlToImage]
+      article.date = params[:article][:publishedAt]
       article.likes = params[:likes]
-      articles.dislikes = 0
+      article.dislikes = 0
     end
+    render json: @article 
   end 
 
   private
