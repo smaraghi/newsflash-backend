@@ -21,18 +21,19 @@ function fetchingArticles(category){
   }
 }
 
-function favoriteArticle(article){
+function likeArticle(article){
     fetch(URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', Accept: 'application/json'
       },
       body: JSON.stringify({
-        article
+        article,
+        likes: article.likes + 1
       })
     })
-    return { type: 'FAVORITE_ARTICLE', payload: article }
+    return { type: 'INCREASE_LIKES', payload: { ...article, likes: article.likes + 1 } }
   }
 
 
-export {fetchingArticles, loadingArticle, favoriteArticle}
+export {fetchingArticles, loadingArticle, likeArticle}

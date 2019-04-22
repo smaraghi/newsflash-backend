@@ -12,23 +12,21 @@ const loadingReducer = (state = false, action) => {
 }
 
 const articlesReducer = (state = [], action) => {
+  
   switch(action.type) {
     
     case 'FETCHED_ARTICLES':
       return action.articles.articles
-  
-    default:
-      return state
-  }
-}
-
-const favoriteArticlesReducer = (state= [], action) => {
-  
-  switch(action.type) {
-
-    case 'FAVORITE_ARTICLE':
       
-      return [...state, action.payload]
+    case 'INCREASE_LIKES':
+    
+      let newArticles = [ ...state ]
+      const removalIndex = newArticles.findIndex(article => article.title === action.payload.title)
+      newArticles.splice(removalIndex, 1, action.payload)
+      return newArticles
+
+    // case 'INCREASE_DISLIKES':
+    //   return 
 
     default:
       return state
@@ -37,8 +35,7 @@ const favoriteArticlesReducer = (state= [], action) => {
 
 const rootReducer = combineReducers({
   articles: articlesReducer,
-  loading: loadingReducer,
-  favoriteArticles: favoriteArticlesReducer
+  loading: loadingReducer
 })
 
 export default rootReducer

@@ -16,8 +16,8 @@
   transition: all ease .5s;
 } 
 
-.voting-button-container{
-  width: 13%;
+.voting-buttons-container{
+  width: 30%;
   margin: auto;
  
 }
