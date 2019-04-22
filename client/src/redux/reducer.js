@@ -23,7 +23,7 @@ const articlesReducer = (state = [], action) => {
   }
 }
 
-const articleLikesReducer = (state=0, action) => {
+const articleLikesReducer = (state = 0, action) => {
   switch(action.type){
 
     case 'FETCHED_ARTICLE_LIKES':
@@ -37,10 +37,25 @@ const articleLikesReducer = (state=0, action) => {
   }
 }
 
+const articleDislikeReducer = (state = 0, action) => {
+  switch(action.type){
+
+    case 'FETCHED_ARTICLE_DISLIKES':
+      return action.payload
+
+    case 'INCREASE_DISLIKES':
+      return action.payload
+
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   articles: articlesReducer,
   loading: loadingReducer,
-  articleLikes: articleLikesReducer
+  articleLikes: articleLikesReducer,
+  articleDislikes: articleDislikeReducer
 })
 
 export default rootReducer

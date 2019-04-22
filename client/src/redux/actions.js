@@ -20,17 +20,23 @@ function fetchingArticles(category){
   }
 }
 
-function likeArticle(article, likes){
-    fetch(URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        article
-      })
+/* This function serves as a helper method to update likes and dislikes count in the backend */
+function updateArticleData(article, act){
+  fetch(URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json', Accept: 'application/json'
+    },
+    body: JSON.stringify({
+      article,
+      act: act
     })
-    return { type: 'INCREASE_LIKES', payload: likes + 1  }
+  })
+}
+
+function likeArticle(article, likes){
+  updateArticleData(article, 'like')
+  return { type: 'INCREASE_LIKES', payload: likes + 1  }
   }
 
 function fetchingArticleLikes(article){
@@ -53,5 +59,31 @@ function fetchedArticleLikes(likeData){
   return { type: 'FETCHED_ARTICLE_LIKES', payload: likeData.likes }
 }
 
+function dislikeArticle(article, dislikes){
+  updateArticleData(article, 'dislike')
+  return { type: 'INCREASE_DISLIKES', payload: dislikes + 1  }
+}
 
-export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes}
+function fetchedArticleDislikes(likeData){
+  return { type: 'FETCHED_ARTICLE_DISLIKES', payload: likeData.dislikes }
+}
+
+function fetchingArticleDislikes(article){
+  return (dispatch) => {
+    fetch(URL + 'get_likes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        article: article
+      })
+    }).then(res => res.json())
+    .then(likeData => dispatch(fetchedArticleDislikes(likeData))
+    )
+  }
+} 
+
+
+
+export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes, dislikeArticle, fetchingArticleDislikes}

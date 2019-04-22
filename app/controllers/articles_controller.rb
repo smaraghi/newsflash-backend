@@ -22,7 +22,13 @@ class ArticlesController < ApplicationController
       article.likes = 0
       article.dislikes = 0
     end
-    @article.likes += 1
+    
+    if params[:act] == 'like' 
+      @article.likes += 1
+    elsif params[:act] == 'dislike'
+      @article.dislikes += 1
+    end
+    
     @article.save
     render json: @article 
   end 
