@@ -11,6 +11,10 @@ class ArticlesController < ApplicationController
     fetch(URL1 + params[:category] + URL2 + KEY) 
   end
 
+  def create
+    
+  end 
+
   private
 
   def fetch(url)

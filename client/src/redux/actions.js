@@ -21,4 +21,18 @@ function fetchingArticles(category){
   }
 }
 
-export {fetchingArticles, loadingArticle}
+function favoriteArticle(article){
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        article
+      })
+    })
+    return { type: 'FAVORITE_ARTICLE', payload: article }
+  }
+
+
+export {fetchingArticles, loadingArticle, favoriteArticle}
