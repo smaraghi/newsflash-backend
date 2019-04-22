@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   
+  
   require 'open-uri'
 
   URL1 = "https://newsapi.org/v2/top-headlines?country=us&category="
@@ -12,7 +13,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    
+    @article = Article.find_or_create_by(title: params[:article][:title]) do |article|
+      article.author = params[:article][:author] 
+      article.description = params[:article][:description]
+      article.url = params[:article][:url]
+      article.image = params[:article][:image]
+      article.date = params[:article][:publishdAt]
+      article.likes = params[:likes]
+      articles.dislikes = 0
+    end
   end 
 
   private

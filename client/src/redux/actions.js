@@ -29,7 +29,7 @@ function likeArticle(article){
       },
       body: JSON.stringify({
         article,
-        likes: article.likes + 1
+        likes: 1
       })
     })
     return { type: 'INCREASE_LIKES', payload: { ...article, likes: article.likes + 1 } }
