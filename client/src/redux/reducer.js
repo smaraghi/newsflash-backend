@@ -17,25 +17,30 @@ const articlesReducer = (state = [], action) => {
     
     case 'FETCHED_ARTICLES':
       return action.articles.articles
-      
-    case 'INCREASE_LIKES':
-    
-      let newArticles = [ ...state ]
-      const removalIndex = newArticles.findIndex(article => article.title === action.payload.title)
-      newArticles.splice(removalIndex, 1, action.payload)
-      return newArticles
-
-    // case 'INCREASE_DISLIKES':
-    //   return 
 
     default:
       return state
   }
 }
 
+const articleLikesReducer = (state=0, action) => {
+  switch(action.type){
+
+    case 'FETCHED_ARTICLE_LIKES':
+      return action.payload
+
+    case 'INCREASE_LIKES':
+      return action.payload
+
+    default:
+    return state
+  }
+}
+
 const rootReducer = combineReducers({
   articles: articlesReducer,
-  loading: loadingReducer
+  loading: loadingReducer,
+  articleLikes: articleLikesReducer
 })
 
 export default rootReducer

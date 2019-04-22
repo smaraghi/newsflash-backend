@@ -19,11 +19,23 @@ class ArticlesController < ApplicationController
       article.url = params[:article][:url]
       article.image = params[:article][:urlToImage]
       article.date = params[:article][:publishedAt]
-      article.likes = params[:likes]
+      article.likes = 0
       article.dislikes = 0
     end
+    @article.likes += 1
+    @article.save
     render json: @article 
   end 
+
+  def get_likes
+    @article = Article.find_by(title: params[:article][:title])
+    if @article
+      like_obj = { likes: @article.likes, dislikes: @article.dislikes }
+    else
+      like_obj = { likes: 0, dislikes: 0 }
+    end
+    render json: like_obj
+  end
 
   private
 

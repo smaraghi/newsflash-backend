@@ -10,7 +10,6 @@ function fetchedArticles(articles){
 
 
 function fetchingArticles(category){
-
   return (dispatch) => {
     dispatch(loadingArticle())
     fetch(URL + category)
@@ -21,19 +20,38 @@ function fetchingArticles(category){
   }
 }
 
-function likeArticle(article){
+function likeArticle(article, likes){
     fetch(URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', Accept: 'application/json'
       },
       body: JSON.stringify({
-        article,
-        likes: 1
+        article
       })
     })
-    return { type: 'INCREASE_LIKES', payload: { ...article, likes: article.likes + 1 } }
+    return { type: 'INCREASE_LIKES', payload: likes + 1  }
   }
 
+function fetchingArticleLikes(article){
+  return (dispatch) => {
+    fetch(URL + 'get_likes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        article: article
+      })
+    }).then(res => res.json())
+    .then(likeData => dispatch(fetchedArticleLikes(likeData))
+    )
+  }
+} 
 
-export {fetchingArticles, loadingArticle, likeArticle}
+function fetchedArticleLikes(likeData){
+  return { type: 'FETCHED_ARTICLE_LIKES', payload: likeData.likes }
+}
+
+
+export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes}
