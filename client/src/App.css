@@ -21,3 +21,13 @@
   margin: auto;
  
 }
+
+#homepage-button{
+  width: 32%;
+  margin-top: 25px;
+}
+
+.homepage-button-container{
+  width: 75%;
+  margin: auto;
+}
