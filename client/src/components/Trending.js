@@ -1,7 +1,9 @@
 import React from 'react'
 
-const Trending = () => {
-  return <div></div>
+const Trending = props => {
+  return <div>
+    {props.article.title}
+  </div>
 }
 
 export default Trending

@@ -81,5 +81,16 @@ function fetchingArticleDislikes(article){
   }
 } 
 
+function fetchedTrendingArticles(articles){
+  return { type: 'FETCHED_TRENDING_ARTICLES', payload: articles }
+}
 
-export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes, dislikeArticle, fetchingArticleDislikes}
+function fetchingTrendingArticles(){
+  return(dispatch) => {
+    fetch(URL + 'get_trending')
+    .then(res => res.json())
+    .then(articles => dispatch(fetchedTrendingArticles(articles)))
+  }
+}
+
+export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes, dislikeArticle, fetchingArticleDislikes, fetchingTrendingArticles}
