@@ -22,14 +22,9 @@ class ArticlesController < ApplicationController
       article.likes = 0
       article.dislikes = 0
     end
+  
+    update_likes
     
-    if params[:act] == 'like' 
-      @article.likes += 1
-    elsif params[:act] == 'dislike'
-      @article.dislikes += 1
-    end
-    
-    @article.save
     render json: @article 
   end 
 
@@ -49,5 +44,14 @@ class ArticlesController < ApplicationController
     req = open(url)
     body = req.read
     render json: body 
+  end
+
+  def update_likes
+    if params[:act] == 'like' 
+      @article.likes += 1
+    elsif params[:act] == 'dislike'
+      @article.dislikes += 1
+    end
+    @article.save
   end
 end
