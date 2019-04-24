@@ -3,6 +3,7 @@ import Trending from '../components/Trending';
 import { Item } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { fetchingTrendingArticles } from '../redux/actions'
+import TrendingMenu from '../components/TrendingMenu';
 
 class TrendingContainer extends Component {
 
@@ -10,18 +11,39 @@ class TrendingContainer extends Component {
     this.props.fetchingTrendingArticles()
   }
 
+  handleActiveItems = () => {
+    let active = []
+    if(this.props.activeItem === 'likes'){
+      active = this.props.likes
+    }
+    else if(this.props.activeItem === 'dislikes'){
+      active = this.props.dislikes
+    }
+    else{
+      active = this.props.controversial
+    }
+    return active 
+  }
+
   render() { 
-    console.log(this.props.trending)
+    
     return ( 
-      <Item.Group divided>
-        {this.props.trending.map((article, index) => <Trending key={index} article={article}/>)}
-      </Item.Group>
+      <React.Fragment>
+        <TrendingMenu />
+        <Item.Group divided>
+          {this.handleActiveItems().map((article, index) => <Trending key={index} article={article}/>)}
+        </Item.Group>
+      </React.Fragment>
      );
   }
 }
  
 const mapStateToProps = state => ({
-  trending: state.trendingArticles
+  test: state.trendingArticles,
+  likes: state.trendingArticles.likes,
+  dislikes: state.trendingArticles.dislikes,
+  controversial: state.trendingArticles.controversial,
+  activeItem: state.activeItem
 })
 
 const mapDispatchToProps = dispatch => ({

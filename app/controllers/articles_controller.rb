@@ -38,6 +38,14 @@ class ArticlesController < ApplicationController
     render json: like_obj
   end
 
+  def get_trending
+    @likes = Article.all.max_by(10){|a| (a.likes) }
+    @dislikes = Article.all.max_by(10){|a| (a.dislikes) }
+    @controversial = Article.all.max_by(10){|a| (a.likes + a.dislikes) }
+    
+    render json: {likes: @likes, dislikes: @dislikes, controversial: @controversial}
+  end
+
   private
 
   def fetch(url)

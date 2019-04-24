@@ -51,10 +51,25 @@ const articleDislikeReducer = (state = 0, action) => {
   }
 }
 
-const trendingArticlesReducer = (state = [], action) => {
+const trendingArticlesReducer = (state = {
+  likes: [],
+  dislikes: [],
+  controversial: []
+}, action) => {
+  
   switch(action.type){
-    
     case 'FETCHED_TRENDING_ARTICLES':
+      return action.payload
+
+    default:
+      return state
+  }
+}
+
+const activeItemReducer = (state = 'likes', action) => {
+
+  switch(action.type){
+    case 'SET_ACTIVE_ITEM':
       return action.payload
 
     default:
@@ -67,7 +82,8 @@ const rootReducer = combineReducers({
   loading: loadingReducer,
   articleLikes: articleLikesReducer,
   articleDislikes: articleDislikeReducer,
-  trendingArticles: trendingArticlesReducer
+  trendingArticles: trendingArticlesReducer,
+  activeItem: activeItemReducer
 })
 
 export default rootReducer

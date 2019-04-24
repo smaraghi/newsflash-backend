@@ -93,4 +93,8 @@ function fetchingTrendingArticles(){
   }
 }
 
-export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes, dislikeArticle, fetchingArticleDislikes, fetchingTrendingArticles}
+function setActiveItem(item){
+  return { type: 'SET_ACTIVE_ITEM', payload: item }
+}
+
+export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes, dislikeArticle, fetchingArticleDislikes, fetchingTrendingArticles, setActiveItem}
