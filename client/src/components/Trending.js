@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item } from 'semantic-ui-react';
+import { Item, Icon } from 'semantic-ui-react';
 
 const Trending = props => {
   const { image, title, author, description, url, likes, dislikes } = props.article
@@ -27,7 +27,14 @@ const Trending = props => {
         <Item.Description>{description}</Item.Description>
       </Item.Content>
       <Item.Content>
-       Likes: {likes} Dislikes: {dislikes}
+       <div>
+        <Icon name='arrow up' />
+          {likes} 
+        </div> 
+        <div>
+        <Icon name='arrow down' />
+          {dislikes}
+        </div>
       </Item.Content>
     </Item>
   )
