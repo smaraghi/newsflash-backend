@@ -17,9 +17,13 @@
 }
 
 .voting-buttons-container{
-  width: 26%;
-  margin: auto;
- 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.voting-buttons{
+  display: inline-block; 
 }
 
 #homepage-button{

@@ -15,6 +15,7 @@ class ArticleModal extends Component {
       <Modal.Content>
           <iframe height='500' width='100%' src={this.props.article.url} title={this.props.article.title}></iframe>
           <div className='voting-buttons-container'>
+          <div className='voting-buttons'>
             <Button as='div' labelPosition='right'>
               <Button onClick={() => this.props.likeArticle(this.props.article, this.props.likes)} inverted color='blue' icon>
                 <Icon name='heart' />
@@ -33,6 +34,7 @@ class ArticleModal extends Component {
                 Dislike
               </Button>
             </Button>
+            </div>
           </div>
       </Modal.Content>
     )
