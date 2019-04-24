@@ -19,7 +19,7 @@ const Trending = props => {
   return (
     <Item>
       <Item.Image src={image} />
-      <Item.Content>
+      <Item.Content id='trending-content-container'>
         <Item.Header as='a' href={url}>{abbrevTitle()}</Item.Header>
         <Item.Meta>
           {author} - {formatDate()}

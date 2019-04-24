@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+/* .dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,10 +14,10 @@
   left: auto !important;
   transform-origin: center !important;
   transition: all ease .5s;
-} 
+}  */
 
 .voting-buttons-container{
-  width: 30%;
+  width: 50%;
   margin: auto;
  
 }
@@ -40,4 +40,12 @@
 #trending-menu{
   width: 100%;
   margin: auto;
+}
+
+.ui.items>.item>.content>.description {
+    max-width: 100%; 
+}
+
+#trending-content-container{
+  width: 70%;
 }
