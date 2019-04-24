@@ -13,10 +13,10 @@ class ArticleModal extends Component {
   render(){
     return (
       <Modal.Content>
-          <iframe height='500' width='850' src={this.props.article.url} title={this.props.article.title}></iframe>
+          <iframe height='500' width='100%' src={this.props.article.url} title={this.props.article.title}></iframe>
           <div className='voting-buttons-container'>
             <Button as='div' labelPosition='right'>
-              <Button onClick={() => this.props.likeArticle(this.props.article, this.props.likes)} inverted color='twitter' icon>
+              <Button onClick={() => this.props.likeArticle(this.props.article, this.props.likes)} inverted color='blue' icon>
                 <Icon name='heart' />
                 Like
               </Button>
@@ -28,7 +28,7 @@ class ArticleModal extends Component {
               <Label basic pointing='right'>
                 {this.props.dislikes}
               </Label>
-              <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='vk' icon>
+              <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='red' icon>
                 <Icon name='x' />
                 Dislike
               </Button>

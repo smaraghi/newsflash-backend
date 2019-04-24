@@ -2,8 +2,22 @@
   text-align: center;
 }
 
+.dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ui.modal,
+.ui.active.modal {
+  margin: 0 auto!important;
+  top: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
+}
+
 .voting-buttons-container{
-  width: 50%;
+  width: 26%;
   margin: auto;
  
 }
@@ -16,6 +30,17 @@
 .homepage-button-container{
   width: 75%;
   margin: auto;
+}
+
+#card-image-container{
+  height: 250px;
+  max-height: 250px;
+  width: 100%;
+}
+
+#card-image{
+  height: 100%;
+  width: 100%;
 }
 
 #menu-container{

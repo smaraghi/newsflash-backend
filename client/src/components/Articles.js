@@ -18,14 +18,16 @@ const Articles = props => {
   const { title, description, author } = props.article
   return (
     <Card>
-      <Image src={getImage()} alt=""/>
+      <Card.Content id='card-image-container'>
+        <Image id='card-image' src={getImage()} alt=""/>
+      </Card.Content>
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Meta>{author}</Card.Meta>
         <Card.Meta>{formatDate()}</Card.Meta>
         <Card.Description>{description}</Card.Description>
       </Card.Content>  
-      <Modal trigger={<Button inverted color='blue'>Read More</Button>} centered={false}>
+      <Modal trigger={<Button inverted color='blue'>Read More</Button>} >
        <ArticleModal article={props.article}/>
       </Modal>
     </Card>
