@@ -11,13 +11,16 @@ const Trending = props => {
     let month = date.split('-')[2]
     return `${day}-${month}-${year}`
   }
-  
+
+  const abbrevTitle = () => {
+    return title.length > 80 ? title.slice(0, 80).concat('...') : title
+  }
 
   return (
     <Item>
       <Item.Image src={image} />
       <Item.Content>
-        <Item.Header as='a' href={url}>{title}</Item.Header>
+        <Item.Header as='a' href={url}>{abbrevTitle()}</Item.Header>
         <Item.Meta>
           {author} - {formatDate()}
         </Item.Meta>

@@ -8,11 +8,13 @@ const TrendingMenu = props => {
   const { activeItem } = props.activeItem
 
   return (
-    <Menu tabular >
-      <Menu.Item name='Popular' active={activeItem === 'Popular'} onClick={() => props.setActiveItem('likes') } />
-      <Menu.Item name='UnPopular' active={activeItem === 'UnPopular'} onClick={() => props.setActiveItem('dislikes')}/>
-      <Menu.Item name='Controversial' active={activeItem === 'Controversial'} onClick={() => props.setActiveItem('controversial')} />
-    </Menu>
+    <div id='menu-container'>
+      <Menu tabular id='trending-menu'>
+        <Menu.Item name='Popular' active={activeItem === 'Popular'} onClick={() => props.setActiveItem('likes') } />
+        <Menu.Item name='UnPopular' active={activeItem === 'UnPopular'} onClick={() => props.setActiveItem('dislikes')}/>
+        <Menu.Item name='Controversial' active={activeItem === 'Controversial'} onClick={() => props.setActiveItem('controversial')} />
+      </Menu>
+    </div>
   )
 }
 

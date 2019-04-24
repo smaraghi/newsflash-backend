@@ -31,3 +31,13 @@
   width: 75%;
   margin: auto;
 }
+
+#menu-container{
+  display: inline-block;
+  margin: auto;
+}
+
+#trending-menu{
+  width: 100%;
+  margin: auto;
+}
