@@ -14,7 +14,8 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path='/' component={MainContainer} />
-          <Route exact path='/articles/trending' component={TrendingContainer} />
+          <Route exact path='/articles' component={MainContainer} />
+          <Route exact path='/trending' component={TrendingContainer} />
           <Route path='/articles' component={ArticlesContainer} />
         </Switch>
       </div>
