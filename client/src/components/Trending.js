@@ -12,27 +12,31 @@ const Trending = props => {
     return `${day}-${month}-${year}`
   }
 
-  const abbrevTitle = () => {
+  const handleTitle = () => {
     return title.length > 80 ? title.slice(0, 80).concat('...') : title
+  }
+
+  const handleAuthor = () => {
+    return author ? author : 'Author not provided'
   }
 
   return (
     <Item>
       <Item.Image src={image} />
       <Item.Content id='trending-content-container'>
-        <Item.Header as='a' href={url}>{abbrevTitle()}</Item.Header>
+        <Item.Header as='a' href={url}>{handleTitle()}</Item.Header>
         <Item.Meta>
-          {author} - {formatDate()}
+          {handleAuthor()} - {formatDate()}
         </Item.Meta>
         <Item.Description>{description}</Item.Description>
       </Item.Content>
       <Item.Content>
        <div>
-        <Icon name='arrow up' />
+        <Icon name='arrow up' color='blue'/>
           {likes} 
         </div> 
         <div>
-        <Icon name='arrow down' />
+        <Icon name='arrow down' color='red'/>
           {dislikes}
         </div>
       </Item.Content>
