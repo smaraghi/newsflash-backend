@@ -10,7 +10,7 @@ class MainContainer extends Component {
           <Link to='/articles/technology'>
             <Button 
             id='homepage-button'
-            circular color='violet' size='massive'
+            circular color='pink' size='massive'
             >Tech
           </Button>
         </Link> 
@@ -36,7 +36,7 @@ class MainContainer extends Component {
           <Link to='/articles/entertainment'>
             <Button
               id='homepage-button'
-              circular color='twitter' size='massive' 
+              circular color='vk' size='massive' 
               >E.T.
             </Button>
           </Link>
