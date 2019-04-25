@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
 import TrendingContainer from './containers/TrendingContainer';
 import MainContainer from './containers/MainContainer';
 import { Route, Switch } from 'react-router-dom'
 import ArticlesContainer from './containers/ArticlesContainer';
+import Navbar from './components/Navbar';
 
 class App extends Component {
  
   render() {
     return (
       <div className="App">
-        <Header />
+        <Navbar />
         <Switch>
           <Route exact path='/' component={MainContainer} />
           <Route exact path='/articles' component={MainContainer} />

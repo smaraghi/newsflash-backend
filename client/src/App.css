@@ -52,15 +52,15 @@
   margin: auto;
 }
 
-#trending-menu{
-  width: 100%;
-  margin: auto;
-}
-
 .ui.items>.item>.content>.description {
     max-width: 100%; 
 }
 
 #trending-content-container{
   width: 70%;
+}
+
+.ui.menu .header.item{
+  background-color: cornflowerblue;
+  width: 120px;
 }
