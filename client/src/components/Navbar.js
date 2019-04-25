@@ -1,12 +1,15 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
   return (
     <Menu >
-      <Menu.Item header>NewsApp</Menu.Item>
+      <Menu.Item header>
+        NewsFlash &nbsp;
+        <Icon name='lightning'/>
+      </Menu.Item>
       <Menu.Item name='About' color='teal'/>
       <Link to='/articles'>
         <Menu.Item name='Articles' color='violet'/>
@@ -14,7 +17,6 @@ const Navbar = () => {
       <Link to='/trending'>
         <Menu.Item name='Trending' color='green'/>
       </Link>
-
     </Menu>
   )
 }
