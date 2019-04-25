@@ -28,12 +28,12 @@ class TrendingContainer extends Component {
   render() { 
     
     return ( 
-      <React.Fragment>
+      <div className='trending-container'>
         <TrendingMenu />
         <Item.Group divided>
           {this.handleActiveItems().map((article, index) => <Trending key={index} article={article}/>)}
         </Item.Group>
-      </React.Fragment>
+      </div>
      );
   }
 }
