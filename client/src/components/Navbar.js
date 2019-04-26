@@ -10,12 +10,14 @@ const Navbar = () => {
         NewsFlash &nbsp;
         <Icon name='lightning'/>
       </Menu.Item>
-      <Menu.Item name='About' color='teal'/>
+      <Link to='/about'>
+        <Menu.Item name='About' />
+      </Link>
       <Link to='/articles'>
-        <Menu.Item name='Articles' color='violet'/>
+        <Menu.Item name='Articles' />
       </Link>
       <Link to='/trending'>
-        <Menu.Item name='Trending' color='green'/>
+        <Menu.Item name='Trending' />
       </Link>
     </Menu>
   )

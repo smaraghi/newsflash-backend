@@ -25,15 +25,18 @@ class ArticleModal extends Component {
                 <Icon name='heart' />
                 Like
               </Button>
+              
               <Label basic pointing='left'>
                 {this.props.likes}
               </Label>
             </Button>
-              <Button as='div' labelPosition='left'>
-                <Label basic pointing='right'>
-                  {this.props.dislikes}
-                </Label>
-                <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='red' icon>
+
+            <Button as='div' labelPosition='left'>
+              <Label basic pointing='right'>
+                {this.props.dislikes}
+              </Label>
+              
+              <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='red' icon>
                 <Icon name='x' />
                 Dislike
               </Button>
