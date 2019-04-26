@@ -6,16 +6,16 @@ class MainContainer extends Component {
   render() { 
     return ( 
       <div>
-        <img id='homepage-news-image' src='https://i.cbc.ca/1.1562152.1461019011!/httpImage/image.jpg_gen/derivatives/16x9_780/hi-newspapers-852.jpg' alt='' />
+        <img id='homepage-news-image' src='https://i.cbc.ca/1.1562152.1461019011!/httpImage/image.jpg_gen/derivatives/16x9_780/hi-newspapers-852.jpg' alt='newspaper' />
 
         <div className='homepage-button-container'>
           <Link to='/articles/technology'>
             <Button 
-            id='homepage-button'
-            circular color='pink' size='massive'
-            >Tech
-          </Button>
-        </Link> 
+              id='homepage-button'
+              circular color='pink' size='massive'
+              >Tech
+            </Button>
+          </Link> 
           
         <Link to='/articles/sports'>
           <Button 
@@ -35,13 +35,13 @@ class MainContainer extends Component {
       </div>
           
       <div className='homepage-button-container'>
-          <Link to='/articles/entertainment'>
-            <Button
-              id='homepage-button'
-              circular color='vk' size='massive' 
-              >E.T.
-            </Button>
-          </Link>
+        <Link to='/articles/entertainment'>
+          <Button
+            id='homepage-button'
+            circular color='vk' size='massive' 
+            >Entertainment
+          </Button>
+        </Link>
 
           <Link to='/articles/science'>
             <Button
