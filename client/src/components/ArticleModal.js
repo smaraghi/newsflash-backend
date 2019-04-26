@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Modal, Button, Icon, Label } from 'semantic-ui-react'
+import { Modal, Button, Icon, Label, Header } from 'semantic-ui-react'
 import { likeArticle, fetchingArticleLikes, fetchingArticleDislikes, dislikeArticle } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class ArticleModal extends Component {
-
+  
   componentDidMount(){
     this.props.fetchingArticleLikes(this.props.article)
     this.props.fetchingArticleDislikes(this.props.article)
@@ -13,8 +13,12 @@ class ArticleModal extends Component {
   render(){
     return (
       <Modal.Content>
-          <iframe height='500' width='100%' src={this.props.article.url} title={this.props.article.title}></iframe>
-          <div className='voting-buttons-container'>
+        {/* <iframe height='500' width='100%' src={this.props.article.url} title={this.props.article.title} ></iframe> */}
+        <Header as='h2'>{this.props.article.title}</Header>
+        <Modal.Description id='modal-description'>{this.props.article.description + '...'}</Modal.Description>
+        <a href={this.props.article.url}>Read More</a>
+
+        <div className='voting-buttons-container'>
           <div className='voting-buttons'>
             <Button as='div' labelPosition='right'>
               <Button onClick={() => this.props.likeArticle(this.props.article, this.props.likes)} inverted color='blue' icon>
@@ -25,11 +29,11 @@ class ArticleModal extends Component {
                 {this.props.likes}
               </Label>
             </Button>
-            <Button as='div' labelPosition='left'>
-              <Label basic pointing='right'>
-                {this.props.dislikes}
-              </Label>
-              <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='red' icon>
+              <Button as='div' labelPosition='left'>
+                <Label basic pointing='right'>
+                  {this.props.dislikes}
+                </Label>
+                <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='red' icon>
                 <Icon name='x' />
                 Dislike
               </Button>

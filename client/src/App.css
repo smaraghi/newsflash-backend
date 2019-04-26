@@ -16,10 +16,15 @@
   transition: all ease .5s;
 }
 
+#modal-description{
+  font-size: 16.5px;
+}
+
 .voting-buttons-container{
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 50px;
 }
 
 .voting-buttons{

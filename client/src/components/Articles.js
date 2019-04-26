@@ -27,7 +27,7 @@ const Articles = props => {
         <Card.Meta>{formatDate()}</Card.Meta>
         <Card.Description>{description}</Card.Description>
       </Card.Content>  
-      <Modal trigger={<Button inverted color='blue'>Read More</Button>} >
+      <Modal trigger={<Button inverted color='blue'>React</Button>} >
        <ArticleModal article={props.article}/>
       </Modal>
     </Card>

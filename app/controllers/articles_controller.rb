@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-  
-  
+
   require 'open-uri'
 
   URL1 = "https://newsapi.org/v2/top-headlines?country=us&category="
