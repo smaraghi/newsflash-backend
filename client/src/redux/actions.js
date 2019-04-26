@@ -8,7 +8,6 @@ function fetchedArticles(articles){
   return { type: 'FETCHED_ARTICLES', articles }
 }
 
-
 function fetchingArticles(category){
   return (dispatch) => {
     dispatch(loadingArticle())

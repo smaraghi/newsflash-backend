@@ -23,8 +23,6 @@ class ArticlesController < ApplicationController
     end
   
     update_likes
-    
-    render json: @article 
   end 
 
   def get_likes

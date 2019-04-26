@@ -22,7 +22,7 @@ const Trending = props => {
 
   return (
     <Item>
-      <Item.Image src={image} />
+      <Item.Image id='trending-image' src={image} />
       <Item.Content id='trending-content-container'>
         <Item.Header as='a' href={url}>{handleTitle()}</Item.Header>
         <Item.Meta>
