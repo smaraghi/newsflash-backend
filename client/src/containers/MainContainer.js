@@ -6,7 +6,7 @@ class MainContainer extends Component {
   render() { 
     return ( 
       <div>
-        <img src='https://i.cbc.ca/1.1562152.1461019011!/httpImage/image.jpg_gen/derivatives/16x9_780/hi-newspapers-852.jpg' alt='' width='1343px' height='300px'/>
+        <img id='homepage-news-image' src='https://i.cbc.ca/1.1562152.1461019011!/httpImage/image.jpg_gen/derivatives/16x9_780/hi-newspapers-852.jpg' alt='' />
 
         <div className='homepage-button-container'>
           <Link to='/articles/technology'>
