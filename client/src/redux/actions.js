@@ -45,7 +45,7 @@ function dislikeArticle(article, dislikes){
 
 // This function serves as a helper method to return the current likes and dislikes of the article being viewed 
 function getArticleData(article){
-  return fetch(URL + 'get_likes', {
+  return fetch(URL + 'get_data', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', Accept: 'application/json'
@@ -59,28 +59,14 @@ function getArticleData(article){
 function fetchingArticleData(article){
   return (dispatch) => {
     getArticleData(article)
-    .then(data => dispatch(fetchedArticleData(data))
-    )
+    .then((data ) => dispatch(fetchedArticleData(data)))
   }
 } 
-
-// function fetchingArticleDislikes(article){
-//   return (dispatch) => {
-//     getArticleData(article)
-//     .then(likeData => dispatch(fetchedArticleDislikes(likeData))
-//     )
-//   }
-// } 
-
 
 function fetchedArticleData(likeData){
   return { type: 'FETCHED_ARTICLE_DATA', payload: likeData }
 }
 
-
-// function fetchedArticleDislikes(likeData){
-//   return { type: 'FETCHED_ARTICLE_DISLIKES', payload: likeData.dislikes }
-// }
 
 
 
