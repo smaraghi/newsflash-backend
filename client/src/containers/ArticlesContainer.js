@@ -11,12 +11,8 @@ class ArticlesContainer extends Component {
     return category.charAt(0).toUpperCase() + category.slice(1)
   }
 
-  fetchRoutes = () => {
-    this.props.fetchingArticles(this.getCategory())
-  }
-
   componentDidMount(){
-    this.fetchRoutes()
+    this.props.fetchingArticles(this.getCategory())
   }
 
   render() { 

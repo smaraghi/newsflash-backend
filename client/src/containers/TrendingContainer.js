@@ -39,7 +39,6 @@ class TrendingContainer extends Component {
 }
  
 const mapStateToProps = state => ({
-  test: state.trendingArticles,
   likes: state.trendingArticles.likes,
   dislikes: state.trendingArticles.dislikes,
   controversial: state.trendingArticles.controversial,
