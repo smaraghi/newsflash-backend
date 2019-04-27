@@ -26,8 +26,8 @@ const articlesReducer = (state = [], action) => {
 const articleLikesReducer = (state = 0, action) => {
   switch(action.type){
 
-    case 'FETCHED_ARTICLE_LIKES':
-      return action.payload
+    case 'FETCHED_ARTICLE_DATA':
+      return action.payload.likes
 
     case 'INCREASE_LIKES':
       return action.payload
@@ -40,8 +40,8 @@ const articleLikesReducer = (state = 0, action) => {
 const articleDislikeReducer = (state = 0, action) => {
   switch(action.type){
 
-    case 'FETCHED_ARTICLE_DISLIKES':
-      return action.payload
+    case 'FETCHED_ARTICLE_DATA':
+      return action.payload.dislikes
 
     case 'INCREASE_DISLIKES':
       return action.payload

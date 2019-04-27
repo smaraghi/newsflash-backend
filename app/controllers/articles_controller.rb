@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
     update_likes
   end 
 
-  def get_likes
+  def get_data
     @article = Article.find_by(title: params[:article][:title])
     if @article
       like_obj = { likes: @article.likes, dislikes: @article.dislikes }
@@ -52,9 +52,9 @@ class ArticlesController < ApplicationController
   end
 
   def update_likes
-    if params[:act] == 'like' 
+    if params[:user_act] == 'like' 
       @article.likes += 1
-    elsif params[:act] == 'dislike'
+    elsif params[:user_act] == 'dislike'
       @article.dislikes += 1
     end
     @article.save

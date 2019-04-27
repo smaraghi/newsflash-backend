@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Modal, Button, Icon, Label, Header } from 'semantic-ui-react'
-import { likeArticle, fetchingArticleLikes, fetchingArticleDislikes, dislikeArticle } from '../redux/actions'
+import { fetchingArticleData,  dislikeArticle, likeArticle } from '../redux/actions'
 import { connect } from 'react-redux'
 
 class ArticleModal extends Component {
   
   componentDidMount(){
-    this.props.fetchingArticleLikes(this.props.article)
-    this.props.fetchingArticleDislikes(this.props.article)
+    this.props.fetchingArticleData(this.props.article)
   }
 
   render(){
@@ -55,10 +54,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchingArticleData: (article) => dispatch(fetchingArticleData(article)),
     likeArticle: (article, likes) => dispatch(likeArticle(article, likes)),
-    fetchingArticleLikes: (article) => dispatch(fetchingArticleLikes(article)),
-    dislikeArticle: (article, dislikes) => dispatch(dislikeArticle(article, dislikes)),
-    fetchingArticleDislikes: (article) => dispatch(fetchingArticleDislikes(article))
+    dislikeArticle: (article, dislikes) => dispatch(dislikeArticle(article, dislikes))
   }
 }
 

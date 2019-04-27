@@ -20,7 +20,7 @@ function fetchingArticles(category){
 }
 
 // This function serves as a helper method to update likes and dislikes count in the backend 
-function updateArticleData(article, act){
+function saveArticleData(article, user_act){
   fetch(URL, {
     method: 'POST',
     headers: {
@@ -28,9 +28,19 @@ function updateArticleData(article, act){
     },
     body: JSON.stringify({
       article,
-      act: act
+      user_act: user_act
     })
   })
+}
+
+function likeArticle(article, likes){
+  saveArticleData(article, 'like')
+  return { type: 'INCREASE_LIKES', payload: likes + 1  }
+  }
+
+function dislikeArticle(article, dislikes){
+  saveArticleData(article, 'dislike')
+  return { type: 'INCREASE_DISLIKES', payload: dislikes + 1  }
 }
 
 // This function serves as a helper method to return the current likes and dislikes of the article being viewed 
@@ -46,39 +56,42 @@ function getArticleData(article){
   }).then(res => res.json())
 }
 
-function likeArticle(article, likes){
-  updateArticleData(article, 'like')
-  return { type: 'INCREASE_LIKES', payload: likes + 1  }
-  }
-
-function fetchingArticleLikes(article){
+function fetchingArticleData(article){
   return (dispatch) => {
     getArticleData(article)
-    .then(likeData => dispatch(fetchedArticleLikes(likeData))
+    .then(data => dispatch(fetchedArticleData(data))
     )
   }
 } 
 
-function fetchedArticleLikes(likeData){
-  return { type: 'FETCHED_ARTICLE_LIKES', payload: likeData.likes }
+// function fetchingArticleDislikes(article){
+//   return (dispatch) => {
+//     getArticleData(article)
+//     .then(likeData => dispatch(fetchedArticleDislikes(likeData))
+//     )
+//   }
+// } 
+
+
+function fetchedArticleData(likeData){
+  return { type: 'FETCHED_ARTICLE_DATA', payload: likeData }
 }
 
-function dislikeArticle(article, dislikes){
-  updateArticleData(article, 'dislike')
-  return { type: 'INCREASE_DISLIKES', payload: dislikes + 1  }
-}
 
-function fetchedArticleDislikes(likeData){
-  return { type: 'FETCHED_ARTICLE_DISLIKES', payload: likeData.dislikes }
-}
+// function fetchedArticleDislikes(likeData){
+//   return { type: 'FETCHED_ARTICLE_DISLIKES', payload: likeData.dislikes }
+// }
 
-function fetchingArticleDislikes(article){
-  return (dispatch) => {
-    getArticleData(article)
-    .then(likeData => dispatch(fetchedArticleDislikes(likeData))
-    )
-  }
-} 
+
+
+
+
+
+
+
+
+
+
 
 function fetchedTrendingArticles(articles){
   return { type: 'FETCHED_TRENDING_ARTICLES', payload: articles }
@@ -96,4 +109,4 @@ function setActiveItem(item){
   return { type: 'SET_ACTIVE_ITEM', payload: item }
 }
 
-export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleLikes, dislikeArticle, fetchingArticleDislikes, fetchingTrendingArticles, setActiveItem}
+export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleData, dislikeArticle,  fetchingTrendingArticles, setActiveItem}
