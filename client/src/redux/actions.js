@@ -63,21 +63,9 @@ function fetchingArticleData(article){
   }
 } 
 
-function fetchedArticleData(likeData){
-  return { type: 'FETCHED_ARTICLE_DATA', payload: likeData }
+function fetchedArticleData(data){
+  return { type: 'FETCHED_ARTICLE_DATA', payload: data }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 function fetchedTrendingArticles(articles){
   return { type: 'FETCHED_TRENDING_ARTICLES', payload: articles }
