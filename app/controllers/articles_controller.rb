@@ -7,7 +7,8 @@ class ArticlesController < ApplicationController
 
   KEY = Rails.application.credentials.apikeys[:news_api_key]
 
-  def get_fetch()
+  # fetching articles from the newsApi based on category
+  def get_articles
     fetch(URL1 + params[:category] + URL2 + KEY) 
   end
 
@@ -45,12 +46,14 @@ class ArticlesController < ApplicationController
 
   private
 
+  # helper function for get_articles that utilizes the open_uri library 
   def fetch(url)
     req = open(url)
     body = req.read
     render json: body 
   end
 
+  # helper function for create that updates the likes/dislikes count based on user input
   def update_likes
     if params[:user_act] == 'like' 
       @article.likes += 1
