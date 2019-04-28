@@ -1,24 +1,25 @@
-# README
+# NewFlash ⚡
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### News in a flash!
 
-Things you may want to cover:
+#### What is NewsFlash?
 
-* Ruby version
+NewsFlash is a lightweight, high impact burst of current events! Browsing the latest news by topic, including tech, sports, entertainment, health, science, and business, users can keep up to date with stories affecting the world today! React to articles with likes and dislikes and contribute to the most popular and controversial topics of the day.
 
-* System dependencies
+#### What is the Tech Stack?
 
-* Configuration
+This source code is broken up into two parts. The backend is built as a Rails API and the frontend is built using the React/Redux libraries. 
 
-* Database creation
+#### How to Run NewsFlash?
 
-* Database initialization
+This project was built using <a href='https://github.com/theforeman/foreman' target='_blank'>foreman</a> which is listed in the gem file. Run `bundle` in the top level directory then start the program by running `foreman start -p 3000`.
 
-* How to run the test suite
+#### License
 
-* Services (job queues, cache servers, search engines, etc.)
+NewsFlash is licensed under the terms of the GNU GPL v2.
 
-* Deployment instructions
+#### Author
 
-* ...
+This code was written by _Serven Maraghi_, and you can find her at
+her [GitHub](https://github.com/smaraghi/).
+
