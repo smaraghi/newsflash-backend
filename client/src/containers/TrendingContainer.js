@@ -19,7 +19,7 @@ class TrendingContainer extends Component {
     else if(this.props.activeItem === 'dislikes'){
       active = this.props.dislikes
     }
-    else{
+    else {
       active = this.props.controversial
     }
     return active 
@@ -31,10 +31,10 @@ class TrendingContainer extends Component {
       <div className='trending-container'>
         <TrendingMenu />
         <Item.Group divided>
-          {this.handleActiveItems().map((article, index) => <Trending key={index} article={article}/>)}
+          {this.handleActiveItems().map((article, index) => <Trending key={index} article={article} /> )}
         </Item.Group>
       </div>
-     );
+    );
   }
 }
  

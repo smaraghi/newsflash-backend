@@ -34,14 +34,14 @@ class ArticleModal extends Component {
               <Label basic pointing='right'>
                 {this.props.dislikes}
               </Label>
-              
+
               <Button onClick={() => this.props.dislikeArticle(this.props.article, this.props.dislikes)} inverted color='red' icon>
                 <Icon name='x' />
                 Dislike
               </Button>
             </Button>
-            </div>
           </div>
+        </div>
       </Modal.Content>
     )
   }

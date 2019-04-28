@@ -36,7 +36,7 @@ function saveArticleData(article, user_act){
 function likeArticle(article, likes){
   saveArticleData(article, 'like')
   return { type: 'INCREASE_LIKES', payload: likes + 1  }
-  }
+}
 
 function dislikeArticle(article, dislikes){
   saveArticleData(article, 'dislike')

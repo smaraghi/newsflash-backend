@@ -23,6 +23,7 @@ const Trending = props => {
   return (
     <Item>
       <Item.Image id='trending-image' src={image} />
+      
       <Item.Content id='trending-content-container'>
         <Item.Header as='a' href={url}>{handleTitle()}</Item.Header>
         <Item.Meta>
@@ -30,13 +31,14 @@ const Trending = props => {
         </Item.Meta>
         <Item.Description>{description}</Item.Description>
       </Item.Content>
+      
       <Item.Content>
-       <div>
-        <Icon name='arrow up' color='blue'/>
-          {likes} 
-        </div> 
         <div>
-        <Icon name='arrow down' color='red'/>
+          <Icon name='arrow up' color='blue'/>
+          {likes} 
+        </div>
+        <div>
+          <Icon name='arrow down' color='red'/>
           {dislikes}
         </div>
       </Item.Content>

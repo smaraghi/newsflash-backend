@@ -12,24 +12,24 @@ class MainContainer extends Component {
           <Link to='/articles/technology'>
             <Button 
               id='homepage-button'
-              circular color='pink' size='massive'
-              >Tech
+              circular color='pink' size='massive'>
+              Tech
             </Button>
           </Link> 
           
         <Link to='/articles/sports'>
           <Button 
             id='homepage-button'
-            circular color='linkedin' size='massive' 
-            >Sports
+            circular color='linkedin' size='massive'>
+            Sports
           </Button>
         </Link>
 
         <Link to='/articles/health'>
           <Button 
             id='homepage-button'
-            circular color='yellow' size='massive'
-            >Health
+            circular color='yellow' size='massive'>
+            Health
           </Button>
         </Link>
       </div>
@@ -38,29 +38,29 @@ class MainContainer extends Component {
         <Link to='/articles/entertainment'>
           <Button
             id='homepage-button'
-            circular color='vk' size='massive' 
-            >Entertainment
+            circular color='vk' size='massive'>
+            Entertainment
           </Button>
         </Link>
 
           <Link to='/articles/science'>
             <Button
               id='homepage-button'
-              circular color='teal' size='massive' 
-              >Science
+              circular color='teal' size='massive'>
+              Science
             </Button>
           </Link>
 
           <Link to='/articles/business'>
             <Button
               id='homepage-button'
-              circular color='facebook' size='massive' 
-              >Business
+              circular color='facebook' size='massive'>
+              Business
             </Button>
           </Link>
         </div>
       </div>
-     );
+    );
   }
 }
 

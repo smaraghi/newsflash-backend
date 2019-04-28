@@ -11,7 +11,6 @@ class ArticlesContainer extends Component {
     return category.charAt(0).toUpperCase() + category.slice(1)
   }
 
-  //makes a call to the backend and sets the articles state to the return value and then that state is mapped to the props of this component 
   componentDidMount(){
     this.props.fetchingArticles(this.getCategory())
   }
@@ -28,7 +27,7 @@ class ArticlesContainer extends Component {
           </div>
         </div>
       </React.Fragment>
-     );
+    );
   }
 }
  

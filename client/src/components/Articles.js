@@ -28,7 +28,7 @@ const Articles = props => {
         <Card.Description>{description}</Card.Description>
       </Card.Content>  
       <Modal trigger={<Button inverted color='blue'>React</Button>} >
-       <ArticleModal article={props.article}/>
+        <ArticleModal article={props.article}/>
       </Modal>
     </Card>
   )
