@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Trending from '../components/Trending';
 import { Item } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { fetchingTrendingArticles } from '../redux/actions'
+import { fetchingTrendingArticles, setQueryNum } from '../redux/actions'
 import TrendingMenu from '../components/TrendingMenu';
+import Query from '../components/Query';
 
 class TrendingContainer extends Component {
 
@@ -29,6 +30,7 @@ class TrendingContainer extends Component {
     
     return ( 
       <div className='trending-container'>
+        <Query />
         <TrendingMenu />
         <Item.Group divided>
           {this.handleActiveItems().map((article, index) => <Trending key={index} article={article} /> )}
@@ -39,7 +41,8 @@ class TrendingContainer extends Component {
 }
  
 const mapStateToProps = state => ({
-  likes: state.trendingArticles.likes,
+  likes: state.trendingArticles.likes.filter(l => l.likes > state.queryNum),
+  // likes: state.trendingArticles.likes,
   dislikes: state.trendingArticles.dislikes,
   controversial: state.trendingArticles.controversial,
   activeItem: state.activeItem

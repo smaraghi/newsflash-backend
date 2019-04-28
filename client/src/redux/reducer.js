@@ -77,13 +77,36 @@ const activeItemReducer = (state = 'likes', action) => {
   }
 }
 
+const searchTextReducer = (state = '', action) => {
+
+  switch(action.type){
+    case 'SET_SEARCH_TEXT':
+      return action.payload
+
+    default:
+      return state
+  }
+}
+
+const queryNumReducer = (state = '', action) => {
+  switch(action.type){
+    case 'SET_QUERY_NUM':
+      return action.payload
+
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   articles: articlesReducer,
   loading: loadingReducer,
   articleLikes: articleLikesReducer,
   articleDislikes: articleDislikeReducer,
   trendingArticles: trendingArticlesReducer,
-  activeItem: activeItemReducer
+  activeItem: activeItemReducer,
+  searchText: searchTextReducer,
+  queryNum: queryNumReducer
 })
 
 export default rootReducer

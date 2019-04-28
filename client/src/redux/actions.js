@@ -83,4 +83,13 @@ function setActiveItem(item){
   return { type: 'SET_ACTIVE_ITEM', payload: item }
 }
 
-export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleData, dislikeArticle,  fetchingTrendingArticles, setActiveItem}
+function setSearchText(text){
+  return {type: 'SET_SEARCH_TEXT', payload: text}
+}
+
+function setQueryNum(num){
+  return {type: 'SET_QUERY_NUM', payload: num }
+}
+
+
+export {fetchingArticles, loadingArticle, likeArticle, fetchingArticleData, dislikeArticle,  fetchingTrendingArticles, setActiveItem, setSearchText, setQueryNum}

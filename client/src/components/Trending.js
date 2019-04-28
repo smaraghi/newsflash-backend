@@ -1,5 +1,7 @@
 import React from 'react'
 import { Item, Icon } from 'semantic-ui-react';
+import { connect } from 'react-redux'
+import { likeArticle, dislikeArticle } from '../redux/actions'
 
 const Trending = props => {
   const { image, title, author, description, url, likes, dislikes } = props.article
@@ -20,6 +22,8 @@ const Trending = props => {
     return author ? author : 'Author not provided'
   }
 
+  
+
   return (
     <Item>
       <Item.Image id='trending-image' src={image} />
@@ -34,11 +38,15 @@ const Trending = props => {
       
       <Item.Content>
         <div>
-          <Icon name='arrow up' color='blue'/>
+          <Icon name='arrow up' color='blue'
+          onClick={() => props.likeArticle(props.article, props.likes)}
+          />
           {likes} 
         </div>
         <div>
-          <Icon name='arrow down' color='red'/>
+          <Icon name='arrow down' color='red'
+          onClick={() => props.dislikeArticle(props.article, props.dislikes)}
+          />
           {dislikes}
         </div>
       </Item.Content>
@@ -46,4 +54,9 @@ const Trending = props => {
   )
 }
 
-export default Trending
+const mapDispatchToProps = dispatch => ({
+  likeArticle: (a, b) => dispatch(likeArticle(a, b)),
+  dislikeArticle: (article, dislikes) => dispatch(dislikeArticle(article, dislikes))
+})
+
+export default connect(null, mapDispatchToProps)(Trending)
