@@ -12,10 +12,9 @@ class ArticleModal extends Component {
   render(){
     return (
       <Modal.Content>
-        {/* <iframe height='500' width='100%' src={this.props.article.url} title={this.props.article.title} ></iframe> */}
         <Header as='h2'>{this.props.article.title}</Header>
         <Modal.Description id='modal-description'>{this.props.article.description + '...'}</Modal.Description>
-        <a href={this.props.article.url}>Read More</a>
+        <a href={this.props.article.url} target='_bank'>Read More</a>
 
         <div className='voting-buttons-container'>
           <div className='voting-buttons'>
