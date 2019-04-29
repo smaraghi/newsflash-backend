@@ -6,17 +6,19 @@ const Navbar = () => {
 
   return (
     <Menu >
-      <Menu.Item header>
-        NewsFlash &nbsp;
-        <Icon name='lightning' />
-      </Menu.Item>
+      <Link to='/'>
+        <Menu.Item header>
+          NewsFlash &nbsp;
+          <Icon name='lightning' />
+        </Menu.Item>
+      </Link>
+
+      <Link to='/'>
+        <Menu.Item name='Home' />
+      </Link>
 
       <Link to='/about'>
         <Menu.Item name='About' />
-      </Link>
-      
-      <Link to='/articles'>
-        <Menu.Item name='Articles' />
       </Link>
       
       <Link to='/trending'>

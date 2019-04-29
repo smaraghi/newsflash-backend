@@ -15,7 +15,6 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path='/' component={MainContainer} />
-          <Route exact path='/articles' component={MainContainer} />
           <Route exact path='/trending' component={TrendingContainer} />
           <Route exact path='/about' component={About} />
           <Route path='/articles' component={ArticlesContainer} />
