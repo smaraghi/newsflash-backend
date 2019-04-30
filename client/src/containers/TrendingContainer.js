@@ -11,7 +11,8 @@ class TrendingContainer extends Component {
     this.props.fetchingTrendingArticles()
   }
 
-  handleActiveItems = () => {
+  //decides which of the 10 articles to display
+  handleActiveArticles = () => {
     let active = []
     if(this.props.activeItem === 'likes'){
       active = this.props.likes
@@ -31,7 +32,7 @@ class TrendingContainer extends Component {
       <div className='trending-container'>
         <TrendingMenu />
         <Item.Group divided>
-          {this.handleActiveItems().map((article, index) => <Trending key={index} article={article} /> )}
+          {this.handleActiveArticles().map((article, index) => <Trending key={index} article={article} /> )}
         </Item.Group>
       </div>
     );
