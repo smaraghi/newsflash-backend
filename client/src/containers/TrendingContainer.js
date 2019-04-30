@@ -13,17 +13,17 @@ class TrendingContainer extends Component {
 
   //decides which of the 10 articles to display
   handleActiveArticles = () => {
-    let active = []
+    let articles = []
     if(this.props.activeItem === 'likes'){
-      active = this.props.likes
+      articles = this.props.likes
     }
     else if(this.props.activeItem === 'dislikes'){
-      active = this.props.dislikes
+      articles = this.props.dislikes
     }
     else {
-      active = this.props.controversial
+      articles = this.props.controversial
     }
-    return active 
+    return articles
   }
 
   render() { 
