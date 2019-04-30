@@ -8,21 +8,17 @@ const TrendingMenu = props => {
   
   return (
     <div id='menu-container'>
-      <Menu tabular >
-        <Menu.Item name='Popular' active={props.activeItem === 'likes'} onClick={() => props.setActiveItem('likes') } />
-        <Menu.Item name='UnPopular' active={props.activeItem === 'dislikes'} onClick={() => props.setActiveItem('dislikes')}/>
-        <Menu.Item name='Controversial' active={props.activeItem === 'controversial'} onClick={() => props.setActiveItem('controversial')} />
+      <Menu  >
+        <Menu.Item name='Popular' onClick={() => props.setActiveItem('likes') } />
+        <Menu.Item name='UnPopular'  onClick={() => props.setActiveItem('dislikes')}/>
+        <Menu.Item name='Controversial'  onClick={() => props.setActiveItem('controversial')} />
       </Menu>
     </div>
   )
 }
 
-const mapStateToProps = state => ({
-  activeItem: state.activeItem
-})
-
 const mapDispatchToProps = dispatch => ({
   setActiveItem: (item) => dispatch(setActiveItem(item))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrendingMenu)
+export default connect(null, mapDispatchToProps)(TrendingMenu)
