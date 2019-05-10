@@ -6,10 +6,11 @@ import { fetchingTrendingArticles } from '../redux/actions'
 import TrendingMenu from '../components/TrendingMenu';
 
 class TrendingContainer extends Component {
-
+  
   componentDidMount(){
     this.props.fetchingTrendingArticles()
   }
+
 
   //decides which of the 10 articles to display
   handleActiveArticles = () => {
@@ -27,7 +28,7 @@ class TrendingContainer extends Component {
   }
 
   render() { 
-    
+   
     return ( 
       <div className='trending-container'>
         <TrendingMenu />

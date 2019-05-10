@@ -15,7 +15,6 @@ class ArticleModal extends Component {
         <Header as='h2'>{this.props.article.title}</Header>
         <Modal.Description id='modal-description'>{this.props.article.description + '...'}</Modal.Description>
         <a href={this.props.article.url} target='_blank' rel="noopener noreferrer">Read More</a>
-
         <div className='voting-buttons-container'>
           <div className='voting-buttons'>
             <Button as='div' labelPosition='right'>
