@@ -1,44 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Articles from '../components/Articles';
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { fetchingArticles } from '../redux/actions'
 
-class ArticlesContainer extends Component {
+const ArticlesContainer = (props) => {
+  const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  getCategory = () => {
-    let category = this.props.location.pathname.split('/')[2]
+  const getCategory = () => {
+    let category = props.location.pathname.split('/')[2]
     return category.charAt(0).toUpperCase() + category.slice(1)
   }
 
-  componentDidMount(){
-    this.props.fetchingArticles(this.getCategory())
-  }
+  useEffect(() => {
+    setLoading(true)
+    fetch('/articles/' + getCategory())
+    .then(res => res.json())
+    .then(articles => {
+      setArticles(articles.articles)
+      setLoading(false)
+    })
+  }, [])
 
-  render() { 
-    return ( 
-      <React.Fragment>
-        <h2>Browsing {this.getCategory()}</h2>
-        <div className="ui grid container">
-          <div className="three column wide centered">
-            <div className="ui three stackable cards">
-              {this.props.articles.map((article, i) => <Articles key={i} article={article} />)}
-            </div>
+
+  return ( 
+    loading ? 
+    <h1>loading...</h1> 
+    : 
+    <React.Fragment>
+      <h2>Browsing {getCategory()}</h2>
+      <div className="ui grid container">
+        <div className="three column wide centered">
+          <div className="ui three stackable cards">
+            {articles.map((article, i) => <Articles key={i} article={article} />)}
           </div>
         </div>
-      </React.Fragment>
-    );
-  }
-}
- 
-const mapStateToProps = state => ({
-  articles: state.articles 
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchingArticles: (category) => dispatch(fetchingArticles(category))
-  }
+      </div>
+    </React.Fragment>
+  );
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ArticlesContainer));
+export default withRouter(ArticlesContainer);
