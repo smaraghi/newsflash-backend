@@ -7,13 +7,17 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './redux/store';
 import 'semantic-ui-css/semantic.min.css'
+import GlobalState from './context/GlobalState';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </BrowserRouter>, 
+    <GlobalState>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+    </GlobalState>
+  , 
   document.getElementById('root')
 );
 

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Trending from '../components/Trending';
 import { Item } from 'semantic-ui-react'
 import TrendingMenu from '../components/TrendingMenu';
+import ShopContext from '../context/shop-context';
 
 const TrendingContainer = () => {
   const [trendingArticles, setTrendingArticles] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [activeItem, setActiveItem] = useState('likes')
+  const context = useContext(ShopContext)
 
   useEffect(() => {
     setLoading(true)
@@ -23,10 +24,10 @@ const TrendingContainer = () => {
   const handleActiveArticles = () => {
     let articles = []
     if (trendingArticles){
-      if(activeItem === 'likes'){
+      if(context.activeItem === 'likes'){
         articles = trendingArticles.likes
       }
-      else if(activeItem === 'dislikes'){
+      else if(context.activeItem === 'dislikes'){
         articles = trendingArticles.dislikes
       }
       else {
@@ -48,6 +49,4 @@ const TrendingContainer = () => {
   );
 }
  
-
-
 export default TrendingContainer;
