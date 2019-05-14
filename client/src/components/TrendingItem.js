@@ -1,7 +1,7 @@
 import React from 'react'
 import { Item, Icon } from 'semantic-ui-react';
 
-const Trending = props => {
+const TrendingItem = props => {
   const { image, title, author, description, url, likes, dislikes } = props.article
   
   const formatDate = () => {
@@ -46,4 +46,4 @@ const Trending = props => {
   )
 }
 
-export default Trending
+export default TrendingItem

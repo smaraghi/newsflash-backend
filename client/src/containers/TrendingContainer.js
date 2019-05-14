@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Trending from '../components/Trending';
+import TrendingItem from '../components/TrendingItem';
 import { Item } from 'semantic-ui-react'
 import TrendingMenu from '../components/TrendingMenu';
 import ShopContext from '../context/shop-context';
@@ -19,7 +19,6 @@ const TrendingContainer = () => {
     })
   }, [])
   
-
   //decides which of the 10 articles to display
   const handleActiveArticles = () => {
     let articles = []
@@ -43,7 +42,7 @@ const TrendingContainer = () => {
     <div className='trending-container'>
       <TrendingMenu />
       <Item.Group divided>
-        {handleActiveArticles().map((article, index) => <Trending key={index} article={article} /> )}
+        {handleActiveArticles().map((article, index) => <TrendingItem key={index} article={article} /> )}
       </Item.Group>
     </div>
   );

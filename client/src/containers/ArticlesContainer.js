@@ -21,7 +21,6 @@ const ArticlesContainer = (props) => {
     })
   }, [])
 
-
   return ( 
     loading ? 
     <h1>loading...</h1> 
