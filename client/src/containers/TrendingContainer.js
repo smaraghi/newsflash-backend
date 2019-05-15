@@ -1,54 +1,51 @@
-import React, { Component } from 'react';
-import Trending from '../components/Trending';
+import React, { useState, useEffect, useContext } from 'react';
+import TrendingItem from '../components/TrendingItem';
 import { Item } from 'semantic-ui-react'
-import { connect } from 'react-redux'
-import { fetchingTrendingArticles } from '../redux/actions'
 import TrendingMenu from '../components/TrendingMenu';
+import ShopContext from '../context/shop-context';
 
-class TrendingContainer extends Component {
+const TrendingContainer = () => {
+  const [trendingArticles, setTrendingArticles] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const context = useContext(ShopContext)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch('/articles/get_trending')
+    .then(res => res.json())
+    .then(articles => {
+      setTrendingArticles(articles)
+      setLoading(false)
+    })
+  }, [])
   
-  componentDidMount(){
-    this.props.fetchingTrendingArticles()
-  }
-
-
   //decides which of the 10 articles to display
-  handleActiveArticles = () => {
+  const handleActiveArticles = () => {
     let articles = []
-    if(this.props.activeItem === 'likes'){
-      articles = this.props.likes
-    }
-    else if(this.props.activeItem === 'dislikes'){
-      articles = this.props.dislikes
-    }
-    else {
-      articles = this.props.controversial
-    }
+    if (trendingArticles){
+      if(context.activeItem === 'likes'){
+        articles = trendingArticles.likes
+      }
+      else if(context.activeItem === 'dislikes'){
+        articles = trendingArticles.dislikes
+      }
+      else {
+        articles = trendingArticles.controversial
+      }}
     return articles
   }
-
-  render() { 
    
-    return ( 
-      <div className='trending-container'>
-        <TrendingMenu />
-        <Item.Group divided>
-          {this.handleActiveArticles().map((article, index) => <Trending key={index} article={article} /> )}
-        </Item.Group>
-      </div>
-    );
-  }
+  return ( 
+    loading ?
+    <h1>loading...</h1>
+    :
+    <div className='trending-container'>
+      <TrendingMenu />
+      <Item.Group divided>
+        {handleActiveArticles().map((article, index) => <TrendingItem key={index} article={article} /> )}
+      </Item.Group>
+    </div>
+  );
 }
  
-const mapStateToProps = state => ({
-  likes: state.trendingArticles.likes,
-  dislikes: state.trendingArticles.dislikes,
-  controversial: state.trendingArticles.controversial,
-  activeItem: state.activeItem
-})
-
-const mapDispatchToProps = dispatch => ({
-  fetchingTrendingArticles: () => dispatch(fetchingTrendingArticles())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(TrendingContainer);
+export default TrendingContainer;
