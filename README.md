@@ -1,4 +1,4 @@
-# NewFlash ⚡
+# NewsFlash ⚡
 
 ### News in a flash!
 
@@ -6,13 +6,21 @@
 
 NewsFlash is a lightweight, high impact burst of current events! Browsing the latest news by topic, including tech, sports, entertainment, health, science, and business, users can keep up to date with stories affecting the world today! React to articles with likes and dislikes and contribute to the most popular and controversial topics of the day.
 
-#### What is the Tech Stack?
+#### The API
 
-This source code is broken up into two parts. The backend is built as a Rails API and the frontend is built using the React/Redux libraries. 
+This source code is the backend Rails API for the NewsFlash app. 
 
 #### How to Run NewsFlash?
 
-This project was built using <a href='https://github.com/theforeman/foreman' target='_blank'>foreman</a> which is listed in the gem file. Run `bundle` in the top level directory then start the program by running `foreman start -p 3000`.
+The application is broken up into two repositories.
+
+Fork or clone the backend at [newsflash-backend](https://github.com/smaraghi/newsflash-backend).
+
+Run `bundle` in the backend directory. Set up the database by running `rails db:migrate`. Finally, start the server by running `rails s`. 
+
+Fork or clone the frontend at [newsflash-frontend](https://github.com/smaraghi/newsflash-frontend).
+
+Run `npm install` in the frontend directory and then start the frontend by running `npm start.` 
 
 #### License
 
@@ -20,6 +28,4 @@ NewsFlash is licensed under the terms of the GNU GPL v2.
 
 #### Author
 
-This code was written by _Serven Maraghi_, and you can find her at
-her [GitHub](https://github.com/smaraghi/).
-
+Written by _Serven Maraghi_[GitHub](https://github.com/smaraghi/).
