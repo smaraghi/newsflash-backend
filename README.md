@@ -12,15 +12,13 @@ This source code is the backend Rails API for the NewsFlash app.
 
 #### How to Run NewsFlash?
 
-The application is broken up into two repositories.
+The application is broken up into three repositories.
 
-Fork or clone the backend at [newsflash-backend](https://github.com/smaraghi/newsflash-backend).
+Fork or clone the master repository at [newsflash](https://github.com/smaraghi/newsflash).
 
-Run `bundle` in the backend directory. Set up the database by running `rails db:migrate`. Finally, start the server by running `rails s`. 
+`cd` into `newsflash-backend` and run `bundle`. Set up the database by running `rails db:migrate`. Finally, start the server by running `rails s`. 
 
-Fork or clone the frontend at [newsflash-frontend](https://github.com/smaraghi/newsflash-frontend).
-
-Run `npm install` in the frontend directory and then start the frontend by running `npm start.` 
+Afterwards, `cd` into `newsflash-frontend` and run `npm install` then start the frontend by running `npm start.`
 
 #### License
 
@@ -28,4 +26,4 @@ NewsFlash is licensed under the terms of the GNU GPL v2.
 
 #### Author
 
-Written by _Serven Maraghi_[GitHub](https://github.com/smaraghi/).
+Written by _Serven Maraghi_ [GitHub](https://github.com/smaraghi/).
