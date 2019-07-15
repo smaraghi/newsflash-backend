@@ -16,7 +16,9 @@ The application is broken up into three repositories.
 
 Fork or clone the master repository at [newsflash](https://github.com/smaraghi/newsflash).
 
-`cd` into `newsflash-backend` and run `bundle`. Set up the database by running `rails db:migrate`. Finally, start the server by running `rails s`. 
+From the master repo run `git submodule init && git submodule update`.
+
+Then, `cd` into `newsflash-backend` and run `bundle`. Set up the database by running `rails db:migrate`. Finally, start the server by running `rails s`. 
 
 Afterwards, `cd` into `newsflash-frontend` and run `npm install` then start the frontend by running `npm start.`
 
